@@ -1,10 +1,18 @@
 <div class="breed-page">
-  <a class="btn-back" routerLink="/" href=""><img src="../../assets/images/ArrowBack.png" alt="back">back</a>
+  <a class="btn-back" routerLink="/" href="">
+    <img src="../../assets/images/ArrowBack.png" alt="back">
+    back
+  </a>
   <div id="sdsd" class="breed-info">
     <ng-container *ngIf="dataBreed && responseImages">
       <h1 class="breed-info-name">{{dataBreed.nameBreed}}</h1>
       <div class="breed-info-images">
-        <img (click)="augmentationImg($event)"  *ngFor="let image of responseImages; let i = index" class="breed-images-item" src="{{image}}" alt="">
+        <img
+          (click)="augmentationImage($event)"
+          *ngFor="let image of responseImages"
+          class="breed-images-item"
+          src="{{image}}"
+          alt="dog">
       </div>
     </ng-container>
   </div>

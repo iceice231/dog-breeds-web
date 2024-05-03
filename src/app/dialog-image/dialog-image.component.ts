@@ -1,22 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from "../breed-page/breed-page.component";
+import {MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-dialog-image',
   standalone: true,
-  imports: [],
+  imports: [
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent
+  ],
   templateUrl: './dialog-image.component.html',
   styleUrl: './dialog-image.component.css'
 })
 export class DialogImageComponent implements OnInit{
 
-  dataImg : any;
+  dataImage : any;
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
-    this.dataImg = this.dataService.getData();
-    console.log(this.dataImg)
+    this.dataImage = this.dataService.getData();
   }
 }

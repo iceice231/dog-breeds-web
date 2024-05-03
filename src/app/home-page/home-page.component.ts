@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {BreedListComponent} from "../breed-list/breed-list.component";
 
-
-
 @Component({
   selector: 'app-home-page',
   standalone: true,
@@ -11,5 +9,4 @@ import {BreedListComponent} from "../breed-list/breed-list.component";
   styleUrl: './home-page.component.css'
 })
 export class HomePageComponent {
-
 }

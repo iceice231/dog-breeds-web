@@ -1,6 +1,11 @@
 <div class="breeds-list">
   <ng-container *ngIf="responseAllBreeds && responseImagesBreeds">
-    <a routerLink="/breed" [queryParams]="breed" class="navlink-breed-div" *ngFor="let breed of listBreeds" href="">
+    <a
+      routerLink="/breed"
+      [queryParams]="breed"
+      class="navlink-breed-div"
+      *ngFor="let breed of listBreeds"
+      href="">
       <div class="breed-item">
         <div class="breed-item-wrapper">
           <div class="breed-item-info">

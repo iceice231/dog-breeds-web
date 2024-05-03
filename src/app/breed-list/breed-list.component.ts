@@ -1,15 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgForOf, NgIf} from "@angular/common";
-import {RouterOutlet, RouterModule, Router, RouterLink} from '@angular/router';
-
-
+import {RouterLink} from '@angular/router';
 
 interface IBreed {
   nameBreed: string,
   urlImgBreed: string,
 }
-
 @Component({
   selector: 'app-breed-list',
   standalone: true,
@@ -25,12 +22,13 @@ interface IBreed {
 export class BreedListComponent implements OnInit {
 
   urlGetAllBreeds = "https://dog.ceo/api/breeds/list/all"
+
   responseAllBreeds: any;
   responseImagesBreeds: any;
+
   listBreeds: Array<IBreed> = []
 
   constructor(private httpClient: HttpClient) {
-
   }
 
   async getBreeds() {

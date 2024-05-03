@@ -1,24 +1,16 @@
-import {Component, OnInit, QueryList, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Data, RouterLink, RouterOutlet} from "@angular/router";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgForOf, NgIf} from "@angular/common";
 import { Injectable } from '@angular/core';
-import {
-  MatDialog,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
-} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {DialogImageComponent} from "../dialog-image/dialog-image.component";
-
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   private data: any;
-
   setData(data: any) {
     this.data = data;
   }
@@ -42,8 +34,6 @@ export class DataService {
 export class BreedPageComponent implements OnInit {
   dataBreed : any;
   responseImages: any;
-  // @ts-ignore
-
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -60,17 +50,14 @@ export class BreedPageComponent implements OnInit {
         this.responseImages = this.responseImages.message;
       })
   }
-
-  augmentationImg(imgId : any) {
-    this.dataService.setData(imgId.target.src)
-    this.dialog.open(DialogImageComponent, {width: '400px', height: '400px', panelClass: 'custom-dialog'})
+  augmentationImage(urlImage : any) {
+    this.dataService.setData(urlImage.target.src)
+    this.dialog.open(DialogImageComponent)
   }
-
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(data => {
       this.dataBreed = data
     })
     this.getImagesBreed()
   }
-
 }
