@@ -4,7 +4,7 @@
     <ng-container *ngIf="dataBreed && responseImages">
       <h1 class="breed-info-name">{{dataBreed.nameBreed}}</h1>
       <div class="breed-info-images">
-        <img (click)="augmentationImg(dataBreed.nameBreed + i)" id="{{dataBreed.nameBreed + i}} "*ngFor="let image of responseImages; let i = index" class="breed-images-item" src="{{image}}" alt="">
+        <img (click)="augmentationImg($event)"  *ngFor="let image of responseImages; let i = index" class="breed-images-item" src="{{image}}" alt="">
       </div>
     </ng-container>
   </div>

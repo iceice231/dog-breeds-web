@@ -20,8 +20,6 @@ import {routes} from "./app.routes";
 export class AppComponent implements OnInit{
   title = 'dog-breeds-web';
 
-  constructor() {
-  }
   ngOnInit() {
   }
 

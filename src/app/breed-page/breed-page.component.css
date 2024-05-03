@@ -32,4 +32,14 @@
   padding-top: 32px;
 }
 
+.mat-mdc-dialog-surface, .mdc-dialog__surface {
+  position: absolute;
+  top: 0;
+}
+
+.custom-dialog {
+  position: absolute !important;
+  top: 0;
+  left:0;
+}
 

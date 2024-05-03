@@ -1,0 +1,11 @@
+.dialog-wrapper {
+  max-width: 400px;
+  position: absolute;
+
+}
+
+.custom-dialog {
+  position: absolute !important;
+  top: 0;
+  left:0;
+}

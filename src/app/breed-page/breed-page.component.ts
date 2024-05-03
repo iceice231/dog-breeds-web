@@ -1,9 +1,31 @@
 import {Component, OnInit, QueryList, ViewChild} from '@angular/core';
-import {ActivatedRoute, RouterLink, RouterOutlet} from "@angular/router";
+import {ActivatedRoute, Data, RouterLink, RouterOutlet} from "@angular/router";
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgForOf, NgIf} from "@angular/common";
+import { Injectable } from '@angular/core';
+import {
+  MatDialog,
+  MatDialogActions,
+  MatDialogClose,
+  MatDialogContent,
+  MatDialogTitle,
+} from '@angular/material/dialog';
+import {DialogImageComponent} from "../dialog-image/dialog-image.component";
 
 
+@Injectable({
+  providedIn: 'root',
+})
+export class DataService {
+  private data: any;
+
+  setData(data: any) {
+    this.data = data;
+  }
+  getData() {
+    return this.data;
+  }
+}
 @Component({
   selector: 'app-breed-page',
   standalone: true,
@@ -23,8 +45,12 @@ export class BreedPageComponent implements OnInit {
   // @ts-ignore
 
 
-  constructor(private activatedRoute: ActivatedRoute, private httpClient: HttpClient) {
-  }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private httpClient: HttpClient,
+    private dataService: DataService,
+    public dialog: MatDialog
+    ) {}
 
   async getImagesBreed() {
     const nameBreed = this.dataBreed.nameBreed.charAt(0).toLowerCase() + this.dataBreed.nameBreed.slice(1)
@@ -32,14 +58,12 @@ export class BreedPageComponent implements OnInit {
       .subscribe(async (response) => {
         this.responseImages = response;
         this.responseImages = this.responseImages.message;
-        // console.log(this.imgBreed)
       })
   }
 
   augmentationImg(imgId : any) {
-
-    const imgBreed = document.getElementById("Affenpinscher0") as HTMLImageElement;
-    console.log(document.getElementById("Affenpinscher0"))
+    this.dataService.setData(imgId.target.src)
+    this.dialog.open(DialogImageComponent, {width: '400px', height: '400px', panelClass: 'custom-dialog'})
   }
 
   ngOnInit() {
@@ -47,11 +71,6 @@ export class BreedPageComponent implements OnInit {
       this.dataBreed = data
     })
     this.getImagesBreed()
-
-    const imgBreed = document.getElementById("Affenpinscher0");
-    console.log(imgBreed)
-
-
   }
 
 }
