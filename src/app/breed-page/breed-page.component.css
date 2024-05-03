@@ -1,0 +1,35 @@
+.breed-info-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 52px;
+  justify-content: space-between;
+}
+
+.breed-images-item {
+  max-width: 270px;
+  height: 165px;
+  object-fit: contain;
+}
+
+.breed-info-name {
+  font-size: 36px;
+  font-family: Inter, "sans-serif";
+  font-weight: 400;
+  margin: 10px 0 20px 0;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-family: Inter, "sans-serif";
+  font-weight: 400;
+  color: #000;
+}
+
+.breed-page {
+  padding-top: 32px;
+}
+
+

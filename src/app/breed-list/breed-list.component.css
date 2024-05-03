@@ -1,0 +1,41 @@
+.breeds-list {
+  margin: 40px 48px 0 48px
+}
+
+.breed-item {
+  background-color: #F5F5F5;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0px 2px 3px rgba(49, 46, 46, 0.3);
+  margin-top: 40px;
+}
+
+.breed-item-wrapper {
+  padding: 12px 11px 12px 11px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.breed-item-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.breed-name {
+  padding-left: 39px;
+
+  font-family: Inter, "sans-serif";
+  font-weight: 400;
+  color: #312E2E
+}
+
+.breed-img {
+  width: 140px;
+}
+
+.navlink-breed-div {
+  display: block;
+}
